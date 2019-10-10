@@ -18,7 +18,7 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   //default VPCが設定されてない場合は以下を設定する
-  //subnet_id = "subnet-019f2d7c9bab778e5"
+  //subnet_id = "subnet-019fxxxxxxxxxxxx"
   tags = {
     Name = var.name
   }
