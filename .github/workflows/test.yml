@@ -1,0 +1,41 @@
+name: tf
+#pull request to master: execute tf plan
+#push to master: execute tf apply
+on:
+  pull_request:
+    branches: [ master ]
+    paths:
+      - sample_ec2
+      - 'modules/**'
+  push:
+    branches: [ master ]
+    paths:
+      - sample_ec2
+      - 'modules/**'
+
+env:
+  TF_VERSION: 0.12.16
+  AWS_REGION: ap-northeast-1
+  WORKING_DIR: sample_ec2
+
+jobs:
+  terraform:
+    name: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Terraform Init ${{ env.WORKING_DIR }}
+        working-directory: ${{ env.WORKING_DIR }}
+        run: |
+          terraform init
+
