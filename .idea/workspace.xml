@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="692e9a5e-9668-4dcb-ad66-cf2b5d07fe4a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/terraform_hands_on.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/terraform_hands_on.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +14,7 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
+  <component name="GOROOT" path="$USER_HOME$/.goenv/versions/1.14.0" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -26,10 +28,6 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
-  </component>
   <component name="ProjectId" id="1fIeUfDs9zdrPyqhPTudKUBfvnM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,7 +40,8 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,12 +52,13 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/ec2" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$/modules" />
       <recent name="$PROJECT_DIR$/sample_ec2_use_modules" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/ec2" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -73,11 +73,23 @@
       <updated>1570690453854</updated>
       <workItem from="1570690456313" duration="3220000" />
       <workItem from="1595910053342" duration="659000" />
+      <workItem from="1595978027946" duration="487000" />
+      <workItem from="1596119204193" duration="262000" />
+      <workItem from="1596159868532" duration="474000" />
+      <workItem from="1596504521761" duration="378000" />
+      <workItem from="1596575290271" duration="1162000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="399" y="269" key="com.intellij.ide.util.TipDialog" timestamp="1596588893805">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="399" y="267" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1596360040056" />
+    <state x="399" y="269" key="com.intellij.ide.util.TipDialog/0.23.1440.828@0.23.1440.828" timestamp="1596588893805" />
   </component>
   <component name="masterDetails">
     <states>
