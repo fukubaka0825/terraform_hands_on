@@ -1,9 +1,4 @@
 name: tf
-env:
-  TF_VERSION: 0.12.16
-  AWS_REGION: ap-northeast-1
-  WORKING_DIR: sample_ec2
-
 #pull request to master: execute tf plan
 #push to master: execute tf apply
 on:
@@ -17,6 +12,12 @@ on:
     paths:
       - ${{ env.WORKING_DIR }}
       - 'modules/**'
+
+env:
+  TF_VERSION: 0.12.16
+  AWS_REGION: ap-northeast-1
+  WORKING_DIR: sample_ec2
+
 jobs:
   terraform:
     name: plan-apply-aws-prod-engage-etc-ecr
