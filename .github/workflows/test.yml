@@ -5,12 +5,12 @@ on:
   pull_request:
     branches: [ master ]
     paths:
-      - ${{ env.WORKING_DIR }}
+      - sample_ec2
       - 'modules/**'
   push:
     branches: [ master ]
     paths:
-      - ${{ env.WORKING_DIR }}
+      - sample_ec2
       - 'modules/**'
 
 env:
