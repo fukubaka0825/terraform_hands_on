@@ -20,7 +20,7 @@ env:
 
 jobs:
   terraform:
-    name: plan-apply-aws-prod-engage-etc-ecr
+    name: test
     runs-on: ubuntu-latest
     defaults:
       run:
