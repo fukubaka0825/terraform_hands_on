@@ -5,37 +5,69 @@ on:
   pull_request:
     branches: [ master ]
     paths:
-      - sample_ec2
-      - 'modules/**'
+      - 'test/test/test/*'
   push:
     branches: [ master ]
     paths:
-      - sample_ec2
-      - 'modules/**'
+      - 'test/test/test/*'
 
 env:
   TF_VERSION: 0.12.16
   AWS_REGION: ap-northeast-1
-  WORKING_DIR: sample_ec2
+  WORKING_DIR: test/test/test
 
 jobs:
   terraform:
     name: test
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: ${{ env.TF_VERSION }}
+          cli_config_credentials_token: ${{ secrets.TF_CLOUD_TEAM_API_TOKEN }}
 
       - name: Terraform Init ${{ env.WORKING_DIR }}
         working-directory: ${{ env.WORKING_DIR }}
         run: |
           terraform init
 
+      - name: Terraform Plan ${{ env.WORKING_DIR }}
+        if: github.event_name == 'pull_request'
+        working-directory: ${{ env.WORKING_DIR }}
+        id: plan
+        run: terraform plan -no-color
+        continue-on-error: true
+      - uses: actions/github-script@0.9.0
+        if: github.event_name == 'pull_request'
+        env:
+          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+
+            <details><summary>Show Plan</summary>
+
+            \`\`\`${process.env.PLAN}\`\`\`
+
+            </details>
+
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Working Directory: \`${{ env.WORKING_DIR }}\`, Workflow: \`${{ github.workflow }}\`*`;
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
