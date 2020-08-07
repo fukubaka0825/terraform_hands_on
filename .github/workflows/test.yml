@@ -5,16 +5,16 @@ on:
   pull_request:
     branches: [ master ]
     paths:
-      - 'test/*'
+      - 'test/test/test*'
   push:
     branches: [ master ]
     paths:
-      - 'test/*'
+      - 'test/test/test*'
 
 env:
   TF_VERSION: 0.12.16
   AWS_REGION: ap-northeast-1
-  WORKING_DIR: test
+  WORKING_DIR: test/test/test
 
 jobs:
   terraform:
