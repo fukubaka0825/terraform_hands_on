@@ -1,11 +1,6 @@
-resource "aws_iam_user" "test" {
-  name = "test"
-  path = "/"
-}
-
 provider "aws" {
   region                  = "ap-northeast-1"
- // shared_credentials_file = "/tmp/sts_aws_credentials/pairs-jp"
+  // shared_credentials_file = "/tmp/sts_aws_credentials/pairs-jp"
   version                 = "= 2.63.0"
 }
 
@@ -25,4 +20,9 @@ terraform {
       name = "ci_test"
     }
   }
+}
+
+resource "aws_iam_user" "test" {
+  name = "test"
+  path = "/"
 }
