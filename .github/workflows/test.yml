@@ -5,11 +5,11 @@ on:
   pull_request:
     branches: [ master ]
     paths:
-      - 'test/test/test*'
+      - 'test/test/test/*'
   push:
     branches: [ master ]
     paths:
-      - 'test/test/test*'
+      - 'test/test/test/*'
 
 env:
   TF_VERSION: 0.12.16
